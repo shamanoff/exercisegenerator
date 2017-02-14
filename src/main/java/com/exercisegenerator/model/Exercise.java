@@ -26,7 +26,6 @@ public class Exercise {
     private int enteredResult;
 
     public boolean answerCheck(int enteredResult, int correctResult){
-        if (enteredResult == correctResult) return true;
-        else return false;
+        return enteredResult == correctResult;
     }
 }
