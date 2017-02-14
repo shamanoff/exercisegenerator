@@ -15,7 +15,7 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     @Column
-    private final int firstInt;
+    private int firstInt;
     @Column
     private final int secondInt;
     @Column
@@ -23,7 +23,7 @@ public class Exercise {
     @Column
     private final int correctResult;
     @Column
-    private final int enteredResult;
+    private int enteredResult;
 
     public boolean answerCheck(int enteredResult, int correctResult){
         if (enteredResult == correctResult) return true;
