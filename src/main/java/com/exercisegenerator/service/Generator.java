@@ -1,7 +1,7 @@
 package com.exercisegenerator.service;
 
-import com.exercisegenerator.model.Exercise;
+import com.exercisegenerator.model.ExerciseConditions;
 
 public interface Generator {
-     void calculate(Exercise exercise);
+     void calculate(ExerciseConditions exerciseConditions);
 }

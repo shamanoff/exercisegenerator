@@ -1,6 +1,7 @@
 package com.exercisegenerator.service;
 
 import com.exercisegenerator.model.Exercise;
+import com.exercisegenerator.model.ExerciseConditions;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -17,30 +18,42 @@ public class ExerciseGenerator implements Generator {
         return new Random(currentTimeMillis()).nextInt(toInt - fromInt) + fromInt;
     }
 
-    private final int DEFRESULT = 1000000000;
-    private int resultInt = DEFRESULT;
+    private int resultInt;
 
     private int getResult(int firstInt, int secondInt, String mathAction) {
-
-
-        if (mathAction.equals("+")) {
-            return resultInt = firstInt + secondInt;
-        }
-        if (mathAction.equals("-")) {
-            return resultInt = firstInt - secondInt;
-        }
-        if (mathAction.equals("*")) {
-            return resultInt = firstInt * secondInt;
-        }
-        if (mathAction.equals("/")) {
-            return resultInt = firstInt / secondInt;
+        try {
+            if (mathAction.equals("+")) {
+                resultInt = firstInt + secondInt;
+            }
+            if (mathAction.equals("-")) {
+                resultInt = firstInt - secondInt;
+            }
+            if (mathAction.equals("*")) {
+                resultInt = firstInt * secondInt;
+            }
+            if (mathAction.equals("/")) {
+                resultInt = firstInt / secondInt;
+            }
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exeption");
+            resultInt = 100_000_000;
         }
         return resultInt;
-
     }
 
     @Override
-    public void calculate(Exercise exercise) {
+    public void calculate(ExerciseConditions exCon) {
 
+        Long id = 0L;
+        int enteredResult = 0;
+        int firstInt = getRandomInt( exCon.getFromInt(), exCon.getToInt());
+        int secondInt = getRandomInt( exCon.getFromInt(), exCon.getToInt());
+        String mathAction = exCon.getMathCondition();
+        int counter = exCon.getExercisesCount();
+
+        int correctResult = getResult(firstInt, secondInt, mathAction);
+        for (int i = 0; i < counter; i++) {
+            quiz.add(new Exercise(id, firstInt, secondInt, mathAction, correctResult, enteredResult));
+        }
     }
 }

@@ -12,7 +12,9 @@ import javax.persistence.*;
 public class ExerciseConditions {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long fromInt;
+    private final Long id;
+    @Column
+    private final int fromInt;
     @Column
     private final int toInt;
     @Column
