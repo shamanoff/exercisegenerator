@@ -22,3 +22,10 @@
 p{
     counter-reset:gray;
 }
+.liner{
+    float: right;
+}
+.num{
+    float: left;
+    padding-left: 1rem;
+}

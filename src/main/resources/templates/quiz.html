@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+    <!--<link rel="stylesheet" th:href="@{/css/app.css}">-->
+    <link rel="stylesheet" href="../static/app.css">
+
+
+</head>
+<body>
+<div class="expanded row">
+    <div class="top-bar">
+
+        <h3>Mathematix</h3>
+
+    </div>
+</div>
+
+<div class="row expanded topline">
+    <div class="row">
+        <div class="small-12 large-12  columns box">
+            <div class="wrapper">
+                <h3>Quiz</h3>
+                <p>Solve the Quiz and check the answers. Save exam.</p>
+                <hr>
+                <form>
+                    <div class="row">
+                        <h4>Addition</h4>
+                        <div class="large-6 columns"><span class="liner">
+<h1 class="num">10</h1><h1 class="num">+</h1><h1 class="num">55</h1><h1 class="num">=</h1></span>
+                        </div>
+                        <div class="large-3 columns">
+                            <label>Your Answer
+                                <input type="number" placeholder="Your answer">
+                            </label>
+                        </div>
+                        <div class="large-3 columns">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <hr>
+                        <input type="submit" class="button  large" value="Generate New Quiz">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/js/foundation.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+</body>
+</html>
