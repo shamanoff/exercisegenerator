@@ -2,6 +2,7 @@ package com.exercisegenerator.service;
 
 import com.exercisegenerator.model.Exercise;
 import com.exercisegenerator.model.ExerciseConditions;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 import static java.lang.System.currentTimeMillis;
 
-
+@Service
 public class ExerciseGenerator implements Generator {
 
 
