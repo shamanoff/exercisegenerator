@@ -14,16 +14,23 @@ public class ViewController {
 
 
     @GetMapping({"/"})
-    public ModelAndView main(){
+    public ModelAndView index(){
 
         ModelAndView mv = new ModelAndView("index");
 
         return mv;
     }
 
-    @GetMapping("/index")
-    public ModelAndView index() {
-        ModelAndView mv = new ModelAndView("index");
+    @GetMapping("/quiz")
+    public ModelAndView quiz() {
+        ModelAndView mv = new ModelAndView("quiz");
+
+        return mv;
+
+    }
+    @GetMapping("/generator")
+    public ModelAndView generator() {
+        ModelAndView mv = new ModelAndView("generator");
 
         return mv;
 

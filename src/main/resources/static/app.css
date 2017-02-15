@@ -1,6 +1,8 @@
 
 .top-bar{
     background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
 }
 .topline{
     padding-top: 5rem;
