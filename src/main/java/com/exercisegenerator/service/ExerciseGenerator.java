@@ -12,6 +12,7 @@ import static java.lang.System.currentTimeMillis;
 
 public class ExerciseGenerator implements Generator {
 
+
     private Set<Exercise> quiz = new HashSet<>();
 
     private int getRandomInt(int fromInt, int toInt) {
@@ -46,8 +47,8 @@ public class ExerciseGenerator implements Generator {
 
         Long id = 0L;
         int enteredResult = 0;
-        int firstInt = getRandomInt( exCon.getFromInt(), exCon.getToInt());
-        int secondInt = getRandomInt( exCon.getFromInt(), exCon.getToInt());
+        int firstInt = getRandomInt(exCon.getFromInt(), exCon.getToInt());
+        int secondInt = getRandomInt(exCon.getFromInt(), exCon.getToInt());
         String mathAction = exCon.getMathCondition();
         int counter = exCon.getExercisesCount();
 

@@ -1,0 +1,20 @@
+.topline{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: gray;
+}
+.wrapper{
+    background-color: #fff;
+    text-align: center;
+    padding:5rem;
+    margin-bottom:2rem;
+
+}
+
+.box{
+    margin: 0 auto;
+}
+
+p{
+    counter-reset:gray;
+}
