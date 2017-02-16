@@ -7,7 +7,7 @@
 .topline{
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: gray;
+    background-color: #5ecc5b;
 }
 .wrapper{
     background-color: #fff;
@@ -22,14 +22,22 @@
 }
 
 p{
-    counter-reset:gray;
 }
 .liner{
     float: right;
 }
+.liner2{
+    /*float: left;*/
+    text-align: center;
+}
 .num{
     float: left;
     padding-left: 1rem;
+    margin-right:1rem;
+}
+.num2{
+    float: left;
+    margin-right:1rem;
 }
 .in{
     margin-top:1rem;
@@ -37,4 +45,7 @@ p{
 .btn{
     margin-top:1rem;
 
+}
+.ok{
+    color: #5ecc5b;
 }

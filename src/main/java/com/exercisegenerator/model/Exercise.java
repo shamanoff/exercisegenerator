@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@AllArgsConstructor
 @Table(name = "exercise")
+@AllArgsConstructor
 public class Exercise {
 
     @Id
@@ -24,6 +24,8 @@ public class Exercise {
     private final int correctResult;
     @Column
     private int enteredResult;
+
+
 
     public boolean answerCheck(int enteredResult, int correctResult){
         return enteredResult == correctResult;
