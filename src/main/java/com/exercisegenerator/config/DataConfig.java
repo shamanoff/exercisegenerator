@@ -19,9 +19,9 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.exercisegenerator")
+@ComponentScan("com.example")
 @PropertySource("classpath:app.properties")
-@EnableJpaRepositories("com.exercisegenerator.repository")
+@EnableJpaRepositories("com.example.repository")
 public class DataConfig {
 
     private static final String PROP_DATABASE_DRIVER = "db.driver";
