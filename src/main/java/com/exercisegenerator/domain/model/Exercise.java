@@ -9,6 +9,7 @@ import java.util.Objects;
 @Entity
 @Data
 @Table(name = "exercise")
+
 public class Exercise {
 
     @Id
@@ -23,11 +24,11 @@ public class Exercise {
     private final MathAction mathAction;
     @Column
     private final Long correctResult;
-    @Column
-    private Long enteredResult;
 
 
-    public boolean answerCheck() {
+
+
+    public boolean answerCheck(Long enteredResult) {
         return Objects.equals(enteredResult, correctResult);
     }
 }

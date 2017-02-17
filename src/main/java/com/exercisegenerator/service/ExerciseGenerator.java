@@ -21,6 +21,7 @@ public class ExerciseGenerator implements Generator{
             Long secondLong = getRandomLong(exCon.getFromInt(), exCon.getToInt());
             MathAction mathAction = exCon.getMathCondition();
             Long correctResult = mathAction.apply(firstLong, secondLong);
+
             exercises.add(new Exercise(firstLong, secondLong, mathAction, correctResult));
         }
         return exercises;

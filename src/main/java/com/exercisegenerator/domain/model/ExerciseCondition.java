@@ -1,20 +1,20 @@
 package com.exercisegenerator.domain.model;
 
 import com.exercisegenerator.domain.converter.MathActionConverter;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@AllArgsConstructor
 @Table(name = "exercise_conditions")
 
 public class ExerciseCondition {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
+    @Column
+    private final Long examId;
     @Column
     private final Long fromInt;
     @Column
