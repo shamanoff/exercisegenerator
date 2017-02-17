@@ -4,13 +4,14 @@ import lombok.Getter;
 
 import java.util.function.BiFunction;
 
-@Getter
+
 public enum MathAction {
     ADDITION("+", (a, b) -> a + b),
     SUBTRACTION("-", (a, b) -> a - b),
     MULTIPLICATION("*", (a, b) -> a * b),
     DIVISION("/", (a, b) -> a / b);
 
+    @Getter
     private final String action;
     private final BiFunction<Long, Long, Long> calcFunction;
 

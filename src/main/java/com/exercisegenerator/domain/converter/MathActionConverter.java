@@ -6,12 +6,12 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter(autoApply = true)
-public class MathActionConverter implements AttributeConverter<MathAction, String>{
+public class MathActionConverter implements AttributeConverter<MathAction, String> {
 
 
     @Override
     public String convertToDatabaseColumn(MathAction attribute) {
-        return attribute == null ? null :attribute.getAction();
+        return attribute == null ? null : attribute.getAction();
     }
 
     @Override
