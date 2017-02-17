@@ -14,8 +14,6 @@ public class ExerciseCondition {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
     @Column
-    private final Long examId;
-    @Column
     private final Long fromInt;
     @Column
     private final Long toInt;

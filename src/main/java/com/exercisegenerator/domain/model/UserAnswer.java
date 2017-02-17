@@ -1,23 +1,21 @@
 package com.exercisegenerator.domain.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@AllArgsConstructor
-@Table(name = "exam")
-public class Exam {
+@Table(name = "answer")
+public class UserAnswer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
-    @Column
-    private final Long conditionId;
+
     @Column
     private final Long exerciseId;
-    @Column
-    private final Long userAnswer;
 
+    @Column
+    private final Long answer;
 }

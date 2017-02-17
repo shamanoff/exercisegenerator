@@ -1,7 +1,8 @@
 package com.exercisegenerator.domain.repository;
 
 import com.exercisegenerator.domain.model.Exercise;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
+
+public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
 }
