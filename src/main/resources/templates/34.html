@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="form-horizontal">
+    <div th:each="catFeatGroup,status : ${catFeatGroupList}" class="form-group">
+        <label>Position</label>
+        <input th:field="*{catFeatGroupList[__${status.index}__].position}"  th:value="${catFeatGroup.position}" />
+        <label>Name</label>
+        <input data-th-name="*{catFeatGroupList[__${status.index}__].name}" th:value="${catFeatGroup.name}" />
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>

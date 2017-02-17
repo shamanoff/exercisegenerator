@@ -3,11 +3,10 @@ package com.exercisegenerator.service;
 import com.exercisegenerator.model.Exercise;
 import com.exercisegenerator.model.ExerciseConditions;
 import lombok.NonNull;
-import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-@Service
+
 abstract class AbstractGenerator implements RandomInt, Generator{
 
     private Set<Exercise> exerciseSet = new HashSet<>();

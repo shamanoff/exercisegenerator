@@ -1,21 +1,23 @@
 package com.exercisegenerator.service;
 
-import com.exercisegenerator.model.Exercise;
+import com.exercisegenerator.model.ExerciseConditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.Collection;
 
 @Service
-public class ExamService {
+public class ExamService implements ExerciseService {
+
     @Autowired
-    private AdditionGenerator additionGenerator;
+    private Generator generator;
 
-    List<Exercise> completeExam = new ArrayList<>();
 
-    public void agregator(Set<Exercise> exerciseSet){
 
+
+    @Override
+    public Integer createExam(Collection<ExerciseConditions> createdExam) {
+
+        return null;
     }
 }

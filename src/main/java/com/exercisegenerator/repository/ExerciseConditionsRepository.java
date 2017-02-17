@@ -1,8 +1,7 @@
 package com.exercisegenerator.repository;
 
+import com.exercisegenerator.model.ExerciseConditions;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.concurrent.locks.Condition;
-
-public interface ExerciseConditionsRepository extends JpaRepository<Condition, Long> {
+public interface ExerciseConditionsRepository extends JpaRepository<ExerciseConditions, Long> {
 }
