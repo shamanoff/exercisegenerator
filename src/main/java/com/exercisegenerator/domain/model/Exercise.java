@@ -16,16 +16,20 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column
-    private final Long firstInt;
+    private Long firstInt;
     @Column
-    private final Long secondInt;
+    private Long secondInt;
     @Column
     @Convert(converter = MathActionConverter.class)
-    private final MathAction mathAction;
+    private MathAction mathAction;
     @Column
-    private final Long correctResult;
-
-
+    private Long correctResult;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "examid")
+    private Exam exam;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "conditionalid")
+    private ExerciseCondition exerciseCondition;
 
 
     public boolean answerCheck(Long enteredResult) {
