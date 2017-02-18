@@ -12,15 +12,15 @@ import javax.persistence.*;
 public class ExerciseCondition {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long id;
+    private  Long id;
     @Column
-    private final Long fromInt;
+    private  Long fromInt;
     @Column
-    private final Long toInt;
+    private  Long toInt;
     @Column
     @Convert(converter = MathActionConverter.class)
-    private final MathAction mathCondition;
+    private  MathAction mathCondition;
     @Column
-    private final Byte exercisesCount;
+    private  Byte exercisesCount;
 
 }

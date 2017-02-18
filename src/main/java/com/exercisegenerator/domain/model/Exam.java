@@ -1,5 +1,6 @@
 package com.exercisegenerator.domain.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-//@AllArgsConstructor
+@AllArgsConstructor
 @Table(name = "exam")
 public class Exam {
     @Id
