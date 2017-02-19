@@ -22,6 +22,7 @@ public class ExerciseGenerator implements Generator{
             MathAction mathAction = exCon.getMathCondition();
             Long correctResult = mathAction.apply(firstLong, secondLong);
 
+
             exercises.add(new Exercise(firstLong, secondLong, mathAction, correctResult));
         }
         return exercises;
