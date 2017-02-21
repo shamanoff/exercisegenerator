@@ -15,15 +15,17 @@ public class ExerciseGenerator implements Generator{
 
     @Override
     public Set<Exercise> generate(@NonNull ExerciseCondition exCon) {
-        Set<Exercise> exercises = new HashSet<>(exCon.getExercisesCount());
-        for (int i = 0; i < exCon.getExercisesCount(); i++) {
+        Set<Exercise> exercises = new HashSet<>(exCon.getExerciseCount());
+        for (int i = 0; i < exCon.getExerciseCount(); i++) {
             Long firstLong = getRandomLong(exCon.getFromInt(), exCon.getToInt());
             Long secondLong = getRandomLong(exCon.getFromInt(), exCon.getToInt());
             MathAction mathAction = exCon.getMathCondition();
             Long correctResult = mathAction.apply(firstLong, secondLong);
 
 
-            exercises.add(new Exercise(firstLong, secondLong, mathAction, correctResult));
+            Exercise exercise = new Exercise(firstLong, secondLong, mathAction, correctResult);
+            exercise.setExerciseCondition(exCon);
+            exercises.add(exercise);
         }
         return exercises;
     }

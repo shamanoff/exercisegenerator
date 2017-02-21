@@ -1,8 +1,8 @@
 package com.exercisegenerator.domain.model;
 
 import com.exercisegenerator.domain.converter.MathActionConverter;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -10,27 +10,29 @@ import java.util.Objects;
 @Entity
 @Data
 @Table(name = "exercise")
-@AllArgsConstructor
+@Accessors(chain = true)
 public class Exercise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(name = "firstint")
     private Long firstInt;
-    @Column
+    @Column(name = "secondint")
     private Long secondInt;
-    @Column
+    @Column(name = "mathaction")
     @Convert(converter = MathActionConverter.class)
     private MathAction mathAction;
-    @Column
+    @Column(name = "correctresult")
     private Long correctResult;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "examid")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "examid", insertable = false, updatable = false)
     private Exam exam;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "conditionalid")
     private ExerciseCondition exerciseCondition;
+    @Column(name = "examid")
+    private Long examId;
 
     public Exercise(Long firstInt, Long secondInt, MathAction mathAction, Long correctResult) {
         this.firstInt = firstInt;

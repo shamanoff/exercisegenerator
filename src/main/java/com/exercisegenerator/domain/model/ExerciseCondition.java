@@ -7,20 +7,20 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "exercise_conditions")
+@Table(name = "exerciseconditions")
 
 public class ExerciseCondition {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-    @Column
+    @Column(name = "fromint")
     private  Long fromInt;
-    @Column
+    @Column(name = "toint")
     private  Long toInt;
-    @Column
+    @Column(name = "mathcondition")
     @Convert(converter = MathActionConverter.class)
     private  MathAction mathCondition;
-    @Column
-    private  Byte exercisesCount;
+    @Column(name = "exercisecount")
+    private  Byte exerciseCount;
 
 }
