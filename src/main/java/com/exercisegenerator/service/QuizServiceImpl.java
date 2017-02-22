@@ -17,6 +17,10 @@ public class QuizServiceImpl implements QuizService {
 
     Map<String, List<Exercise>> exMap = new HashMap<>();
 
+    public Map<String, List<Exercise>> getExMap() {
+        return exMap;
+    }
+
     List<Exercise> exList = new ArrayList<>();
 
     @Override

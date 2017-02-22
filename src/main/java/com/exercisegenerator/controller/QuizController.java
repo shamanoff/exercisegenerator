@@ -14,10 +14,12 @@ public class QuizController {
     @Autowired
     private QuizServiceImpl quizService;
 
+
     @RequestMapping("/product/{id}")
     public ModelAndView getQuizById(@PathVariable Integer id, Model model) {
+
         ModelAndView mv = new ModelAndView("quiz");
-        mv.addObject("exMap", map.get("ADDITION"));
+        mv.addObject("exMap",quizService.getExMap().get("ADDITION"));
         model.addAttribute("quiz", quizService.getExercise(id));
         return mv;
     }
