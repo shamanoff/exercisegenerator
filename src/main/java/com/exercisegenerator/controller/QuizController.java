@@ -15,7 +15,7 @@ public class QuizController {
     private QuizServiceImpl quizService;
 
 
-    @RequestMapping("/product/{id}")
+    @RequestMapping("/quiz/{id}")
     public ModelAndView getQuizById(@PathVariable Integer id, Model model) {
 
         ModelAndView mv = new ModelAndView("quiz");
