@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ExamController {
     @Autowired
-    ExamGenerator examGenerator;
+    private ExamGenerator examGenerator;
 
     @RequestMapping(value = "/conditions", method = RequestMethod.POST)
     public String getConditions(@ModelAttribute("conditions") ConditionsWrapper conditions) {

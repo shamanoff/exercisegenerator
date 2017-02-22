@@ -7,5 +7,6 @@ import java.util.List;
 
 
 public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
-    List<Exercise> findAll(Integer id);
+    List<Exercise> findByExamId(Integer id);
+
 }

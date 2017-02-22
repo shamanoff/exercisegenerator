@@ -25,7 +25,7 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public List<Exercise> getExercise(Integer id) {
-        exList = exerciseRepository.findAll(id);
+        exList = exerciseRepository.findByExamId(id);
         return exList;
     }
 
