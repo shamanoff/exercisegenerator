@@ -9,6 +9,6 @@ public interface QuizService {
 
     List<Exercise> getExercise(Integer id);
 
-    Map<String, List<Exercise>>exerciseMap();
+    Map<String, List<Exercise>> getExerciseMap();
 
 }
