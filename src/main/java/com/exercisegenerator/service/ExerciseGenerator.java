@@ -12,7 +12,6 @@ import java.util.Set;
 @Service
 public class ExerciseGenerator implements Generator{
 
-
     @Override
     public Set<Exercise> generate(@NonNull ExerciseCondition exCon) {
         Set<Exercise> exercises = new HashSet<>(exCon.getExerciseCount());
