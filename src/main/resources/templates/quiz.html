@@ -30,7 +30,7 @@
                 <div class="area">
                 <h4>Addition</h4>
                 <div class="line">
-                    <div class="row" th:each="exercise, it : ${exercises}">
+                    <div class="row" th:each="exercise : ${exercise}">
                         <div class="large-6 columns">
                         <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction}">+</h1><h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
                                 class="num">=</h1></span>
