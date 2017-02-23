@@ -16,10 +16,10 @@ public class QuizController {
 
 
     @RequestMapping("/quiz/{id}")
-    public ModelAndView getQuizById(@PathVariable Integer id, Model model) {
+    public ModelAndView getQuizById(@PathVariable Long id, Model model) {
 
         ModelAndView mv = new ModelAndView("quiz");
-        mv.addObject("exMap",quizService.getExMap().get("ADDITION"));
+        mv.addObject("exMap",quizService.getExerciseMap().get("ADDITION"));
         model.addAttribute("quiz", quizService.getExercise(id));
         return mv;
     }

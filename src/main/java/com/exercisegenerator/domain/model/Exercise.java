@@ -2,6 +2,7 @@ package com.exercisegenerator.domain.model;
 
 import com.exercisegenerator.domain.converter.MathActionConverter;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Objects;
 @Data
 @Table(name = "exercise")
 @Accessors(chain = true)
+@NoArgsConstructor
 public class Exercise {
 
     @Id

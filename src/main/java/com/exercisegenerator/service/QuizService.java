@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface QuizService {
 
-    List<Exercise> getExercise(Integer id);
+    List<Exercise> getExercise(Long id);
 
     Map<String, List<Exercise>> getExerciseMap();
 

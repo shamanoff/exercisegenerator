@@ -16,15 +16,14 @@ public class QuizServiceImpl implements QuizService {
     ExerciseRepository exerciseRepository;
 
     Map<String, List<Exercise>> exMap = new HashMap<>();
-
-    public Map<String, List<Exercise>> getExMap() {
-        return exMap;
-    }
-
     List<Exercise> exList = new ArrayList<>();
 
+  /*  public Map<String, List<Exercise>> getExMap() {
+        return exMap;
+    }*/
+
     @Override
-    public List<Exercise> getExercise(Integer id) {
+    public List<Exercise> getExercise(Long id) {
         exList = exerciseRepository.findByExamId(id);
         return exList;
     }

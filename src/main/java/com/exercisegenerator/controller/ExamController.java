@@ -18,6 +18,6 @@ public class ExamController {
 
         Long id = examGenerator.createExam(conditions.conditions);
 
-        return "/quiz";
+        return "redirect:/quiz/"+id;
     }
 }
