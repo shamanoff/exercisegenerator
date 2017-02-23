@@ -11,8 +11,11 @@ public interface Generator {
     Set<Exercise> generate(ExerciseCondition exCon);
 
     default long getRandomLong(long fromInt, long toInt) {
-        if(toInt != fromInt) {
-            return ThreadLocalRandom.current().nextLong(toInt - fromInt) + fromInt;
-        }return fromInt;
+        if (toInt != fromInt) {
+            if (fromInt > toInt) {
+                fromInt ^= (toInt ^=fromInt);
+                toInt ^= fromInt;
+            } return ThreadLocalRandom.current().nextLong(toInt - fromInt) + fromInt;
+        } return fromInt;
     }
 }
