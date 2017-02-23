@@ -20,7 +20,7 @@ public class QuizController {
 
         ModelAndView mv = new ModelAndView("quiz");
         mv.addObject("exMap",quizService.getExerciseMap().get("ADDITION"));
-    /*    mv.addObject("exMap",quizService.getExerciseMap().get("SUBTRACTION"));
+     /*   mv.addObject("exMap",quizService.getExerciseMap().get("SUBTRACTION"));
         mv.addObject("exMap",quizService.getExerciseMap().get("MULTIPLICATION"));
         mv.addObject("exMap",quizService.getExerciseMap().get("DIVISION"));*/
         model.addAttribute("quiz", quizService.getExercise(id));

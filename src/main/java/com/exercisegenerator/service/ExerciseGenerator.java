@@ -16,7 +16,7 @@ public class ExerciseGenerator implements Generator{
     public Set<Exercise> generate(@NonNull ExerciseCondition exCon) {
         Set<Exercise> exercises = new HashSet<>(exCon.getExerciseCount());
 
-            for (int i = 1; i < exCon.getExerciseCount(); i++) {
+            for (int i = 0; i < exCon.getExerciseCount(); i++) {
                 Long firstLong = getRandomLong(exCon.getFromInt(), exCon.getToInt());
                 Long secondLong = getRandomLong(exCon.getFromInt(), exCon.getToInt());
                 MathAction mathAction = exCon.getMathCondition();

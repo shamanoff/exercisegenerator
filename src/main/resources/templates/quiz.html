@@ -34,7 +34,7 @@
                         <div class="large-6 columns">
                         <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                class="num">=</h1></span>
+                                class="num">=</h1><h1 th:hidden="true"  th:text="${exercise.correctResult}" id="result"></h1></span>
                         </div>
                         <div class="large-2 columns">
                             <input type="number" class="in" placeholder="Answer Here">
@@ -48,9 +48,11 @@
                         <hr>
                     </div>
                     <div class="row">
-                        <span class="liner2"> <h3 class="callout alert num2">12</h3><h3
-                                class="callout alert num2">10</h3><h3 class="callout success num2">16</h3> <h3
-                                class="ok callout success num2">OK!</h3></span>
+                        <span class="liner2">
+                            <h3 class=" num2"></h3>
+                            <h3 class="ok  num2"></h3>
+                        </span>
+                        <hr>
                     </div>
                 </div>
                 </div>
