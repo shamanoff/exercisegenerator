@@ -1,42 +1,38 @@
 package com.exercisegenerator.service;
 
 import com.exercisegenerator.domain.model.Exercise;
+import com.exercisegenerator.domain.model.MathAction;
 import com.exercisegenerator.domain.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 @Service
 public class QuizServiceImpl implements QuizService {
+
+    private final ExerciseRepository exerciseRepository;
+
     @Autowired
-    ExerciseRepository exerciseRepository;
-
-    Map<String, List<Exercise>> exMap = new HashMap<>();
-    List<Exercise> exList = new ArrayList<>();
-
-  /*  public Map<String, List<Exercise>> getExMap() {
-        return exMap;
-    }*/
-
-    @Override
-    public List<Exercise> getExercise(Long id) {
-        exList = exerciseRepository.findByExamId(id);
-        return exList;
+    public QuizServiceImpl(ExerciseRepository exerciseRepository) {
+        this.exerciseRepository = exerciseRepository;
     }
 
     @Override
-    public Map<String, List<Exercise>> getExerciseMap() {
+    public List<Exercise> getExercise(Long id) {
+        return  exerciseRepository.findByExamId(id);
+    }
 
-        exMap = exList.stream()
+    @Override
+    public Map<MathAction, List<Exercise>> getExerciseMap(Long id) {
+
+      return  this.getExercise(id).stream()
                 .collect(
                         Collectors.groupingBy(
-                                (i) -> i.getMathAction().toString(), Collectors.toList()
+                                Exercise::getMathAction, Collectors.toList()
                         )
                 );
-        return exMap;
+
     }
 }

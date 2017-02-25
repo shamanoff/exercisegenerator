@@ -34,29 +34,26 @@
                         <div class="large-6 columns">
                         <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                class="num">=</h1><h1 th:hidden="true"  th:text="${exercise.correctResult}" id="result"></h1></span>
+                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
                         </div>
-                        <div class="large-2 columns">
+                        <div class="large-2 columns ans">
                             <input type="number" class="in" placeholder="Answer Here">
                         </div>
                         <div class="large-2 columns">
-                            <input type="submit" class="button btn" value="Save and Check the Answer">
+                            <input type="button" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)" >
                         </div>
                         <div class="large-2 columns">
 
                         </div>
                         <hr>
                     </div>
-                    <div class="row">
-                        <span class="liner2">
-                            <h3 class=" num2"></h3>
-                            <h3 class="ok  num2"></h3>
+                    <div class="row answerWrap">
+                        <span class="liner2" th:id="'success'+${exercise.id}">
                         </span>
                         <hr>
                     </div>
                 </div>
                 </div>
-
 
                 <div class="area" th:each="exercise : ${sub}">
                     <h4 th:text="${exercise.mathAction}">Addition</h4>
@@ -65,23 +62,22 @@
                             <div class="large-6 columns">
                         <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><h1 th:hidden="true"  th:text="${exercise.correctResult}" id="result"></h1></span>
+                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
                             </div>
-                            <div class="large-2 columns">
+                            <div class="large-2 columns ans">
                                 <input type="number" class="in" placeholder="Answer Here">
                             </div>
                             <div class="large-2 columns">
-                                <input type="submit" class="button btn" value="Save and Check the Answer">
+                                <input type="submit" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)">
                             </div>
                             <div class="large-2 columns">
 
                             </div>
                             <hr>
                         </div>
-                        <div class="row">
+                        <div class="row answerWrap">
                         <span class="liner2">
-                            <h3 class=" num2"></h3>
-                            <h3 class="ok  num2"></h3>
+
                         </span>
                             <hr>
                         </div>
@@ -95,23 +91,22 @@
                             <div class="large-6 columns">
                         <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><h1 th:hidden="true"  th:text="${exercise.correctResult}" id="result"></h1></span>
+                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
+                            </div>
+                            <div class="large-2 columns ans">
+                                <input type="number" class="in" placeholder="Answer Here" >
                             </div>
                             <div class="large-2 columns">
-                                <input type="number" class="in" placeholder="Answer Here">
-                            </div>
-                            <div class="large-2 columns">
-                                <input type="submit" class="button btn" value="Save and Check the Answer">
+                                <input type="submit" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)">
                             </div>
                             <div class="large-2 columns">
 
                             </div>
                             <hr>
                         </div>
-                        <div class="row">
+                        <div class="row answerWrap">
                         <span class="liner2">
-                            <h3 class=" num2"></h3>
-                            <h3 class="ok  num2"></h3>
+
                         </span>
                             <hr>
                         </div>
@@ -125,23 +120,22 @@
                             <div class="large-6 columns">
                         <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><h1 th:hidden="true"  th:text="${exercise.correctResult}" id="result"></h1></span>
+                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
                             </div>
-                            <div class="large-2 columns">
+                            <div class="large-2 columns ans">
                                 <input type="number" class="in" placeholder="Answer Here">
                             </div>
                             <div class="large-2 columns">
-                                <input type="submit" class="button btn" value="Save and Check the Answer">
+                                <input type="submit" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)">
                             </div>
                             <div class="large-2 columns">
 
                             </div>
                             <hr>
                         </div>
-                        <div class="row">
+                        <div class="row answerWrap">
                         <span class="liner2">
-                            <h3 class=" num2"></h3>
-                            <h3 class="ok  num2"></h3>
+
                         </span>
                             <hr>
                         </div>
@@ -164,7 +158,58 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/js/foundation.js"></script>
 <script>
     $(document).foundation();
+
+    function myFunc(e) {
+        var answer = $(e.tagName).closest('.ans').find('.in').val();
+        var exerciseId = $(e.tagName).closest('.liner').find('.cor').val();
+
+        $.ajax({
+            type: "POST",
+            url: "quiz/check/"+exerciseId +"?answer="+ answer,
+            success:function (answer) {
+                    var $successBlock = $("#success"+exerciseId);
+                    $successBlock.append('<h1>'+answer+'</h1>');
+
+            },
+            error:function (answer) {
+                var $successBlock = $("#success"+exerciseId);
+                $successBlock.append('<h1>'+answer+'</h1>');
+            },
+//            dataType: json
+        });
+
+    }
+
+ /*   function refresh() {
+        if (!window.location.hash) {
+            window.location = window.location + '#ready';
+            window.location.reload();
+        }
+    }
+    setTimeout("refresh()", 2000);*/
+
+
+
+/*
+    function myFunc(e) {
+
+        var cor = $(e.tagName).closest('.liner').find('.cor').val();
+        var answer = $(e.tagName).closest('.ans').find('.in').val();
+        var wrap = $(e.tagName).closest('.line').find('.liner2');
+
+
+        wrap.append('<h1>'+answer+'</h1>');
+        if(cor == answer){
+            wrap.find("h1:last-child").addClass("callout success")
+        } else wrap.find("h1:last-child").addClass("callout alert");
+        if(wrap.find("h1:last-child").hasClass("success")){
+            wrap.find("h1:last-child").append('<h1>Ok!</h1>');
+            $(e).addClass('disabled');
+        }
+
+    }*/
 </script>
+
 
 </body>
 </html>
