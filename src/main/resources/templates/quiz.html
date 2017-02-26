@@ -37,10 +37,10 @@
                                     class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
                         </div>
                         <div class="large-2 columns ans">
-                            <input type="number" class="in" placeholder="Answer Here">
+                            <input type="number" class="in" placeholder="Answer Here" th:id="'answer'+${exercise.id}">
                         </div>
                         <div class="large-2 columns">
-                            <input type="button" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)" >
+                            <input type="button" class="button btn" value="Save and Check the Answer" onclick="myFunc()" >
                         </div>
                         <div class="large-2 columns">
 
@@ -48,7 +48,7 @@
                         <hr>
                     </div>
                     <div class="row answerWrap">
-                        <span class="liner2" th:id="'success'+${exercise.id}">
+                        <span class="liner2" th:id="'place'+${exercise.id}">
                         </span>
                         <hr>
                     </div>
@@ -159,22 +159,28 @@
 <script>
     $(document).foundation();
 
-    function myFunc(e) {
-        var answer = $(e.tagName).closest('.ans').find('.in').val();
-        var exerciseId = $(e.tagName).closest('.liner').find('.cor').val();
+    function myFunc() {
+
+//        var answer = $(e.tagName).closest('.ans').find('.in').val();
+//        var exerciseId = $(e.tagName).closest('.liner').find('.cor').val();
+        var exerciseId = $(".exerciseId").val();
+        var answer = $("#answer"+exerciseId).val();
+
+
 
         $.ajax({
             type: "POST",
             url: "quiz/check/"+exerciseId +"?answer="+ answer,
-            success:function (answer) {
-                    var $successBlock = $("#success"+exerciseId);
-                    $successBlock.append('<h1>'+answer+'</h1>');
+            success:function () {
+                    $("#place"+exerciseId).append('<h1 class="callout success">'+answer+'</h1>');
+                    console.log("S"+answer);
 
             },
-            error:function (answer) {
-                var $successBlock = $("#success"+exerciseId);
-                $successBlock.append('<h1>'+answer+'</h1>');
-            },
+            error:function () {
+                $("#place"+exerciseId).append('<h1 class="callout alert">'+answer+'</h1>');
+
+
+            }
 //            dataType: json
         });
 
