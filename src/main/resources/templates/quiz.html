@@ -28,47 +28,58 @@
                 <hr>
 
                 <div class="area" th:each="exercise : ${add}">
-                <h4 th:text="${exercise.mathAction}">Addition</h4>
-                <div class="line">
-                    <div class="row" >
-                        <div class="large-6 columns">
-                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
-                            <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
-                        </div>
-                        <div class="large-2 columns ans">
-                            <input type="number" class="in" placeholder="Answer Here" th:id="'answer'+${exercise.id}">
-                        </div>
-                        <div class="large-2 columns">
-                            <input type="button" class="button btn" value="Save and Check the Answer" onclick="myFunc()" >
-                        </div>
-                        <div class="large-2 columns">
+                    <h4 th:text="${exercise.mathAction}">Addition</h4>
+                    <div class="line">
+                        <div class="row fields">
+                            <div class="large-6 columns ">
+                                <span class="liner">
+                                <h1 class="num" th:text="${exercise.firstInt}">10</h1>
+                                <h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                                <h1 class="num" th:text="${exercise.secondInt}">55</h1>
+                                <h1 class="num">=</h1>
+                                <input th:hidden="true" th:value="${exercise.id}"
+                                                                 th:id="'exerciseId'+${exercise.id}"
+                                                                 class="exerciseId">
+                                </span>
+                            </div>
+                            <div class="large-2 columns ans">
+                                <input type="number" class="in" placeholder="Answer Here"
+                                       th:id="'answer'+${exercise.id}">
+                            </div>
+                            <div class="large-2 columns">
+                                <input type="button" class="button btn" value="Save and Check the Answer"
+                                       onclick="myFunc(this)" th:id="'btn'+${exercise.id}">
+                            </div>
+                            <div class="large-2 columns">
 
+                            </div>
+                            <hr>
                         </div>
-                        <hr>
-                    </div>
-                    <div class="row answerWrap">
+                        <div class="row answerWrap">
                         <span class="liner2" th:id="'place'+${exercise.id}">
                         </span>
-                        <hr>
+                            <hr>
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="area" th:each="exercise : ${sub}">
                     <h4 th:text="${exercise.mathAction}">Addition</h4>
                     <div class="line">
-                        <div class="row" >
+                        <div class="row">
                             <div class="large-6 columns">
-                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num"
+                                                                                                      th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
+                                    class="num">=</h1><input th:hidden="true" th:value="${exercise.id}"
+                                                             class="exerciseId"></span>
                             </div>
                             <div class="large-2 columns ans">
                                 <input type="number" class="in" placeholder="Answer Here">
                             </div>
                             <div class="large-2 columns">
-                                <input type="submit" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)">
+                                <input type="submit" class="button btn" value="Save and Check the Answer"
+                                       onclick="myFunc(this)">
                             </div>
                             <div class="large-2 columns">
 
@@ -87,17 +98,20 @@
                 <div class="area" th:each="exercise : ${mul}">
                     <h4 th:text="${exercise.mathAction}">Addition</h4>
                     <div class="line">
-                        <div class="row" >
+                        <div class="row">
                             <div class="large-6 columns">
-                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num"
+                                                                                                      th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
+                                    class="num">=</h1><input th:hidden="true" th:value="${exercise.id}"
+                                                             class="exerciseId"></span>
                             </div>
                             <div class="large-2 columns ans">
-                                <input type="number" class="in" placeholder="Answer Here" >
+                                <input type="number" class="in" placeholder="Answer Here">
                             </div>
                             <div class="large-2 columns">
-                                <input type="submit" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)">
+                                <input type="submit" class="button btn" value="Save and Check the Answer"
+                                       onclick="myFunc(this)">
                             </div>
                             <div class="large-2 columns">
 
@@ -116,17 +130,20 @@
                 <div class="area" th:each="exercise : ${divi}">
                     <h4 th:text="${exercise.mathAction}">Addition</h4>
                     <div class="line">
-                        <div class="row" >
+                        <div class="row">
                             <div class="large-6 columns">
-                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                        <span class="liner"><h1 class="num" th:text="${exercise.firstInt}">10</h1><h1 class="num"
+                                                                                                      th:text="${exercise.mathAction.action}">+</h1>
                             <h1 class="num" th:text="${exercise.secondInt}">55</h1><h1
-                                    class="num">=</h1><input th:hidden="true"  th:value="${exercise.id}" class="exerciseId"></span>
+                                    class="num">=</h1><input th:hidden="true" th:value="${exercise.id}"
+                                                             class="exerciseId"></span>
                             </div>
                             <div class="large-2 columns ans">
                                 <input type="number" class="in" placeholder="Answer Here">
                             </div>
                             <div class="large-2 columns">
-                                <input type="submit" class="button btn" value="Save and Check the Answer" onclick="myFunc(this)">
+                                <input type="submit" class="button btn" value="Save and Check the Answer"
+                                       onclick="myFunc(this)">
                             </div>
                             <div class="large-2 columns">
 
@@ -159,61 +176,59 @@
 <script>
     $(document).foundation();
 
-    function myFunc() {
+    function myFunc(e) {
 
 //        var answer = $(e.tagName).closest('.ans').find('.in').val();
-//        var exerciseId = $(e.tagName).closest('.liner').find('.cor').val();
-        var exerciseId = $(".exerciseId").val();
-        var answer = $("#answer"+exerciseId).val();
-
+        var exerciseId = $(e.tagName).parent().find('.exerciseId').val();
+        console.log(exerciseId)
+//        var exerciseId = $("#exerciseId"+exerciseId).val();
+        var answer = $("#answer" + exerciseId).val();
 
 
         $.ajax({
             type: "POST",
-            url: "quiz/check/"+exerciseId +"?answer="+ answer,
-            success:function () {
-                    $("#place"+exerciseId).append('<h1 class="callout success">'+answer+'</h1>');
-                    console.log("S"+answer);
-
+            url: "/quiz/check/" + exerciseId + "?answer=" + answer,
+            success: function (data) {
+                $("#place" + exerciseId).append('<h1 class="callout success num2">' + answer + '</h1>'+'<h1 class="callout success num2">Ok!</h1>');
+                $("#btn" + exerciseId).addClass('disabled');
             },
-            error:function () {
-                $("#place"+exerciseId).append('<h1 class="callout alert">'+answer+'</h1>');
+            error: function (data) {
+                $("#place" + exerciseId).append('<h1 class="callout alert num2">' + answer + '</h1>');
 
 
             }
-//            dataType: json
         });
 
     }
 
- /*   function refresh() {
-        if (!window.location.hash) {
-            window.location = window.location + '#ready';
-            window.location.reload();
-        }
-    }
-    setTimeout("refresh()", 2000);*/
+    /*   function refresh() {
+     if (!window.location.hash) {
+     window.location = window.location + '#ready';
+     window.location.reload();
+     }
+     }
+     setTimeout("refresh()", 2000);*/
 
 
 
-/*
-    function myFunc(e) {
+    /*
+     function myFunc(e) {
 
-        var cor = $(e.tagName).closest('.liner').find('.cor').val();
-        var answer = $(e.tagName).closest('.ans').find('.in').val();
-        var wrap = $(e.tagName).closest('.line').find('.liner2');
+     var cor = $(e.tagName).closest('.liner').find('.cor').val();
+     var answer = $(e.tagName).closest('.ans').find('.in').val();
+     var wrap = $(e.tagName).closest('.line').find('.liner2');
 
 
-        wrap.append('<h1>'+answer+'</h1>');
-        if(cor == answer){
-            wrap.find("h1:last-child").addClass("callout success")
-        } else wrap.find("h1:last-child").addClass("callout alert");
-        if(wrap.find("h1:last-child").hasClass("success")){
-            wrap.find("h1:last-child").append('<h1>Ok!</h1>');
-            $(e).addClass('disabled');
-        }
+     wrap.append('<h1>'+answer+'</h1>');
+     if(cor == answer){
+     wrap.find("h1:last-child").addClass("callout success")
+     } else wrap.find("h1:last-child").addClass("callout alert");
+     if(wrap.find("h1:last-child").hasClass("success")){
+     wrap.find("h1:last-child").append('<h1>Ok!</h1>');
+     $(e).addClass('disabled');
+     }
 
-    }*/
+     }*/
 </script>
 
 
