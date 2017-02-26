@@ -25,10 +25,11 @@
         <div class="wrapper">
             <form>
                 <h3>Exam successfully generated!</h3>
-                <p>Send this link to the student</p>
+                <a class="hollow button centred" th:href="@{'/quiz/' + ${quizId}}">Send this link to the student</a>
+
+                <p th:text="${'ID: '+quizId}"></p>
                 <div class="row">
                     <div class="small-9 columns">
-                        <a th:href="@{'/quiz/' + ${quizId}}">exam</a>
                     </div>
 
                 </div>
