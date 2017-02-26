@@ -48,7 +48,7 @@
                             </div>
                             <div class="large-2 columns">
                                 <input type="button" class="button btn" value="Save and Check the Answer"
-                                       onclick="myFunc(this)" th:id="'btn'+${exercise.id}">
+                                       onclick="myFunc(this)" th:id="${exercise.id}">
                             </div>
                             <div class="large-2 columns">
 
@@ -179,8 +179,9 @@
     function myFunc(e) {
 
 //        var answer = $(e.tagName).closest('.ans').find('.in').val();
-        var exerciseId = $(e.tagName).parent().find('.exerciseId').val();
-        console.log(exerciseId)
+//        var exerciseId = $(e.tagName).parent().find('.exerciseId').val();
+        var exerciseId = $(e).attr('id');
+        console.log(exerciseId);
 //        var exerciseId = $("#exerciseId"+exerciseId).val();
         var answer = $("#answer" + exerciseId).val();
 
@@ -188,6 +189,8 @@
         $.ajax({
             type: "POST",
             url: "/quiz/check/" + exerciseId + "?answer=" + answer,
+            data : { exerciseId : 'exerciseId', answer : 'answer' },
+//            dataType: "text",
             success: function (data) {
                 $("#place" + exerciseId).append('<h1 class="callout success num2">' + answer + '</h1>'+'<h1 class="callout success num2">Ok!</h1>');
                 $("#btn" + exerciseId).addClass('disabled');
