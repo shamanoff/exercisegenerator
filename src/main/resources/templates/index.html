@@ -30,16 +30,18 @@
     </div>
     <div class="small-12 large-6  columns">
         <div class="wrapper">
-            <form>
+            <form th:action="@{/redirect}" method="get">
                 <h3>For Students</h3>
                 <p>Enter the Quiz ID received from the teacher. Do the Quiz and check your answers.</p>
                 <div class="row">
+
                     <div class="small-9 columns">
-                        <input type="number" id="middle-label" placeholder="Input ID">
+                        <input type="number" id="middle-label" placeholder="Input ID" name="id">
                     </div>
                     <div class="small-3 columns">
                         <input type="submit" class="button" value="Submit">
                     </div>
+
                 </div>
             </form>
         </div>

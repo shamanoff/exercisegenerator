@@ -11,11 +11,13 @@ public class UserAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Long id;
+    private  Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "exerciseId", insertable = false, updatable = false)
+    private  Exercise exercise;
 
     @Column
-    private final Long exerciseId;
+    private  Long answer;
 
-    @Column
-    private final Long answer;
 }

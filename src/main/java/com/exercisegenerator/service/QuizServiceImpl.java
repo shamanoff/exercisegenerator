@@ -11,28 +11,22 @@ import java.util.Map;
 import java.util.stream.Collectors;
 @Service
 public class QuizServiceImpl implements QuizService {
-
     private final ExerciseRepository exerciseRepository;
-
     @Autowired
     public QuizServiceImpl(ExerciseRepository exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
     }
-
     @Override
     public List<Exercise> getExercise(Long id) {
         return  exerciseRepository.findByExamId(id);
     }
-
     @Override
     public Map<MathAction, List<Exercise>> getExerciseMap(Long id) {
-
       return  this.getExercise(id).stream()
                 .collect(
                         Collectors.groupingBy(
                                 Exercise::getMathAction, Collectors.toList()
                         )
                 );
-
     }
 }
