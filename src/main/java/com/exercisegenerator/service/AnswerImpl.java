@@ -1,14 +1,17 @@
 package com.exercisegenerator.service;
 
+import com.exercisegenerator.domain.model.UserAnswer;
 import com.exercisegenerator.domain.repository.AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AnswerImpl implements AnswerService {
 
-    private final AnswerRepository answerRepository;
+    private AnswerRepository answerRepository;
 
     @Autowired
     public AnswerImpl(AnswerRepository answerRepository) {
@@ -18,7 +21,10 @@ public class AnswerImpl implements AnswerService {
 
     @Override
     public List<Long> getAnswers(Long id) {
-        List<Long> answersList = answerRepository.findAll(id);
-        return answersList;
+        List<UserAnswer> answersList = answerRepository.findAllByExerciseId(id);
+
+        return answersList.stream()
+                .map(UserAnswer::getAnswer)
+                .collect(Collectors.toList());
     }
 }

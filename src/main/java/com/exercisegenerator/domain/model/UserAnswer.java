@@ -1,12 +1,16 @@
 package com.exercisegenerator.domain.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "answer")
+@Table(name = "useranswer")
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserAnswer {
 
     @Id
@@ -14,7 +18,7 @@ public class UserAnswer {
     private  Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "exerciseId", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private  Exercise exercise;
 
     @Column

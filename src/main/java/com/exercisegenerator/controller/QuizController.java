@@ -2,6 +2,8 @@ package com.exercisegenerator.controller;
 
 import com.exercisegenerator.domain.model.Exercise;
 import com.exercisegenerator.domain.model.MathAction;
+import com.exercisegenerator.domain.model.UserAnswer;
+import com.exercisegenerator.domain.repository.AnswerRepository;
 import com.exercisegenerator.domain.repository.ExerciseRepository;
 import com.exercisegenerator.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class QuizController {
     private QuizService quizService;
     @Autowired
     private ExerciseRepository exerciseRepository;
+    @Autowired
+    private AnswerRepository answerRepository;
 
     @GetMapping("/quiz/{id}")
     public ModelAndView getQuizById(@PathVariable Long id, Model model) {
@@ -51,10 +55,18 @@ public class QuizController {
     @PostMapping("/quiz/check/{exerciseId}")
     public ResponseEntity<Long> checkAnswer(@RequestParam("answer") Long answer, @PathVariable Long exerciseId) {
         Exercise exercise = exerciseRepository.findOne(exerciseId);
+
+        UserAnswer userAnswer = new UserAnswer();
+        userAnswer.setAnswer(answer);
+        userAnswer.setExercise(exercise);
+        answerRepository.save(userAnswer);
         if (exercise.answerCheck(answer)) {
             return ResponseEntity.ok(exercise.getCorrectResult());
         }
-        return  ResponseEntity.badRequest().body(exercise.getCorrectResult());
+        return ResponseEntity.badRequest().body(exercise.getCorrectResult());
+
+
     }
+
 
 }
