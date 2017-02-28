@@ -6,5 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface AnswerRepository extends CrudRepository<UserAnswer, Long> {
-    List<UserAnswer> findAllByExerciseId(Long id);
+//    List<UserAnswer> findAllByExerciseid(Long id);
+    List<Long> findAllByExerciseid(Long id);
 }

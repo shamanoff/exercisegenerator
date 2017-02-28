@@ -58,7 +58,7 @@ public class QuizController {
 
         UserAnswer userAnswer = new UserAnswer();
         userAnswer.setAnswer(answer);
-        userAnswer.setExercise(exercise);
+        userAnswer.setExerciseid(exercise.getId());
         answerRepository.save(userAnswer);
         if (exercise.answerCheck(answer)) {
             return ResponseEntity.ok(exercise.getCorrectResult());

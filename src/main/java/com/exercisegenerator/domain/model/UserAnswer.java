@@ -15,13 +15,14 @@ public class UserAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private  Exercise exercise;
+    /*    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+        @JoinColumn(name = "exerciseid", updatable = false)*/
+    @Column
+    private Long exerciseid;
 
     @Column
-    private  Long answer;
+    private Long answer;
 
 }
