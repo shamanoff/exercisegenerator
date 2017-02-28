@@ -22,7 +22,19 @@ public class UserAnswer {
     @Column
     private Long exerciseid;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "exerciseid", updatable = false, insertable = false)
+    private Exercise exercise;
+
     @Column
     private Long answer;
 
+    @Override
+    public String toString() {
+        return "UserAnswer{" +
+                "id=" + id +
+                ", exerciseid=" + exerciseid +
+                ", answer=" + answer +
+                '}';
+    }
 }

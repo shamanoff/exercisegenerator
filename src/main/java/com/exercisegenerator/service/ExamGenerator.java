@@ -25,6 +25,9 @@ public class ExamGenerator {
     @Transactional
     public Long createExam(List<ExerciseCondition> exerciseConditions) {
         Long id = exerciseGenerator.getRandomLong(10_000_000L, 99_999_999L);
+        Exam exam = new Exam();
+        exam.setId(id);
+        examRepository.save(exam).getId();
         List<Exercise> exercises = exerciseConditions
                 .stream()
                 .map(exerciseGenerator::generate)
@@ -33,8 +36,7 @@ public class ExamGenerator {
                 .map(exerciseRepository::save)
                 .collect(Collectors.toList());
 
-        Exam exam = new Exam(id, exercises);
-        return examRepository.save(exam).getId();
+        return id;
 
     }
 

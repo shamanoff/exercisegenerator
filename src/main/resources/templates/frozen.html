@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+    <!--<link rel="stylesheet" th:href="@{/css/app.css}">-->
+    <link rel="stylesheet" th:href="@{../app.css}">
+
+
+</head>
+<body>
+<div class="expanded row">
+    <div class="top-bar ">
+
+        <h3>Mathematix</h3>
+
+    </div>
+</div>
+
+<div class="row expanded topline">
+    <div class="row">
+        <div class="small-12 large-12  columns box">
+            <div class="wrapper">
+                <h3>Quiz</h3>
+                <p>Solve the Quiz and check the answers. Save exam.</p>
+                <hr>
+
+                <div class="area" th:each="exercise : ${add}">
+                    <h4 th:text="${exercise.mathAction}">ADDITION</h4>
+                    <div class="line">
+                        <div class="row fields">
+                            <div class="large-6 columns ">
+                                <span class="liner">
+                                <h1 class="num" th:text="${exercise.firstInt}">10</h1>
+                                <h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                                <h1 class="num" th:text="${exercise.secondInt}">55</h1>
+                                <h1 class="num">=</h1>
+                                </span>
+                            </div>
+                            <div class="large-2 columns ans">
+                                <h1 class="num callout success" th:text="${exercise.correctResult}">55</h1>
+                            </div>
+                            <div class="large-2 columns">
+                            </div>
+                            <div class="large-2 columns">
+
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row answerWrap">
+                        <span class="liner2" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer != exercise.correctResult}">
+                            <h1 class="num2 callout alert" th:text="${answer.answer}" >9</h1>
+                        </span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <!--<input type="submit" class="button  large" value="Save Quiz">-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/js/foundation.js"></script>
+<script>
+    $(document).foundation();
+
+/*
+    function myFunc(e) {
+
+
+        var exerciseId = $(e).attr('id');
+        console.log(exerciseId);
+        var answer = $("#answer" + exerciseId).val();
+
+
+        $.ajax({
+            type: "POST",
+            url: "/quiz/check/" + exerciseId + "?answer=" + answer,
+            data: {exerciseId: 'exerciseId', answer: 'answer'},
+            success: function (data) {
+                $("#place" + exerciseId).append('<h1 class="callout success num2">' + answer + '</h1>' + '<h1 class="callout success num2">Ok!</h1>');
+                $("#" + exerciseId).addClass('disabled');
+            },
+            error: function (data) {
+                $("#place" + exerciseId).append('<h1 class="callout alert num2">' + answer + '</h1>');
+
+
+            }
+        });
+
+    }
+*/
+
+
+</script>
+
+
+</body>
+</html>

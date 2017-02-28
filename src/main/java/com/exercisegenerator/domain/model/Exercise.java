@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -36,6 +37,9 @@ public class Exercise {
     @Column(name = "examid")
     private Long examId;
 
+    @OneToMany( fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "exercise")
+    private List<UserAnswer> userAnswers;
+
     public Exercise(Long firstInt, Long secondInt, MathAction mathAction, Long correctResult) {
         this.firstInt = firstInt;
         this.secondInt = secondInt;
@@ -45,5 +49,16 @@ public class Exercise {
 
     public boolean answerCheck(Long enteredResult) {
         return Objects.equals(enteredResult, correctResult);
+    }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "id=" + id +
+                ", firstInt=" + firstInt +
+                ", secondInt=" + secondInt +
+                ", correctResult=" + correctResult +
+                ", examId=" + examId +
+                '}';
     }
 }

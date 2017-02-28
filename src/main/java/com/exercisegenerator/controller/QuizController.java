@@ -9,12 +9,13 @@ import com.exercisegenerator.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Map;
@@ -32,20 +33,44 @@ public class QuizController {
     private AnswerRepository answerRepository;
 
     @GetMapping("/quiz/{id}")
-    public ModelAndView getQuizById(@PathVariable Long id, Model model) {
+    public ModelAndView getQuizById(@PathVariable Long id) {
 
-        Map<MathAction, List<Exercise>> exerciseMap = quizService.getExerciseMap(id);
+        if(quizService.isSolved(id)){
+            return new ModelAndView("redirect:/frozen/"+id);
+        }
+
+        ModelAndView mv = getModelAndView(id, "quiz");
+
+        return mv;
+    }
+
+    @PostMapping("/complete/{id}")
+    public View complete(@PathVariable Long id){
+      quizService.solveQuiz(id);
+      return new RedirectView("/frozen/"+id);
+    }
+
+    @GetMapping("/frozen/{id}")
+    public ModelAndView getFrozenById(@PathVariable Long id) {
+
+        ModelAndView mv = getModelAndView(id, "frozen");
+
+        return mv;
+    }
+
+    private ModelAndView getModelAndView(Long examId, String viewName) {
+        Map<MathAction, List<Exercise>> exerciseMap = quizService.getExerciseMap(examId);
         List<Exercise> add = exerciseMap.get(ADDITION);
         List<Exercise> sub = exerciseMap.get(SUBTRACTION);
         List<Exercise> mul = exerciseMap.get(MULTIPLICATION);
         List<Exercise> divi = exerciseMap.get(DIVISION);
 
-        ModelAndView mv = new ModelAndView("quiz");
+        ModelAndView mv = new ModelAndView(viewName);
         mv.addObject("add", add);
         mv.addObject("sub", sub);
         mv.addObject("mul", mul);
         mv.addObject("divi", divi);
-
+        mv.addObject("examId", examId );
         return mv;
     }
 

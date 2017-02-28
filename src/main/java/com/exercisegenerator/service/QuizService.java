@@ -12,4 +12,9 @@ public interface QuizService {
 
     Map<MathAction, List<Exercise>> getExerciseMap(Long id);
 
-}
+    boolean isSolved(Long id);
+
+     void solveQuiz(Long id);
+
+
+    }
