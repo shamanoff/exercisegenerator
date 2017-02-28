@@ -46,11 +46,9 @@ public class QuizController {
         mv.addObject("mul", mul);
         mv.addObject("divi", divi);
 
-//        model.addAttribute("quiz", quizService.getExercise(id));
         return mv;
     }
 
-    //todo:создать репозиторий для сохранения введенных ответов в базу. и записать в этом же методе введенный ответ.
 
     @PostMapping("/quiz/check/{exerciseId}")
     public ResponseEntity<Long> checkAnswer(@RequestParam("answer") Long answer, @PathVariable Long exerciseId) {
