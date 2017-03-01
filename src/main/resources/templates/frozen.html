@@ -14,7 +14,7 @@
 <div class="expanded row">
     <div class="top-bar ">
 
-        <h3>Mathematix</h3>
+        <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}" />
 
     </div>
 </div>
@@ -23,8 +23,8 @@
     <div class="row">
         <div class="small-12 large-12  columns box">
             <div class="wrapper">
-                <h3>Quiz</h3>
-                <p>Solve the Quiz and check the answers. Save exam.</p>
+                <h3>Successfully Finished Exam</h3>
+                <p></p>
                 <hr>
 
                 <div class="area" th:each="exercise : ${add}">
@@ -39,9 +39,8 @@
                                 <h1 class="num">=</h1>
                                 </span>
                             </div>
-                            <div class="large-2 columns ans">
-                                переделять вывод правильного результата
-                                <h1 class="num callout success" th:text="${exercise.correctResult}">55</h1>
+                            <div class="large-2 columns ans" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer == exercise.correctResult}">
+                                <h1 class="num callout success" th:text="${answer.answer}">55</h1>
                             </div>
                             <div class="large-2 columns">
                             </div>
@@ -59,6 +58,98 @@
                     </div>
                 </div>
 
+                <div class="area" th:each="exercise : ${sub}">
+                    <h4 th:text="${exercise.mathAction}">ADDITION</h4>
+                    <div class="line">
+                        <div class="row fields">
+                            <div class="large-6 columns ">
+                                <span class="liner">
+                                <h1 class="num" th:text="${exercise.firstInt}">10</h1>
+                                <h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                                <h1 class="num" th:text="${exercise.secondInt}">55</h1>
+                                <h1 class="num">=</h1>
+                                </span>
+                            </div>
+                            <div class="large-2 columns ans" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer == exercise.correctResult}">
+                                <h1 class="num callout success" th:text="${answer.answer}">55</h1>
+                            </div>
+                            <div class="large-2 columns">
+                            </div>
+                            <div class="large-2 columns">
+
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row answerWrap">
+                        <span class="liner2" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer != exercise.correctResult}">
+                            <h1 class="num2 callout alert" th:text="${answer.answer}" >9</h1>
+                        </span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area" th:each="exercise : ${mul}">
+                    <h4 th:text="${exercise.mathAction}">ADDITION</h4>
+                    <div class="line">
+                        <div class="row fields">
+                            <div class="large-6 columns ">
+                                <span class="liner">
+                                <h1 class="num" th:text="${exercise.firstInt}">10</h1>
+                                <h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                                <h1 class="num" th:text="${exercise.secondInt}">55</h1>
+                                <h1 class="num">=</h1>
+                                </span>
+                            </div>
+                            <div class="large-2 columns ans" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer == exercise.correctResult}">
+                                <h1 class="num callout success" th:text="${answer.answer}">55</h1>
+                            </div>
+                            <div class="large-2 columns">
+                            </div>
+                            <div class="large-2 columns">
+
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row answerWrap">
+                        <span class="liner2" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer != exercise.correctResult}">
+                            <h1 class="num2 callout alert" th:text="${answer.answer}" >9</h1>
+                        </span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area" th:each="exercise : ${divi}">
+                    <h4 th:text="${exercise.mathAction}">ADDITION</h4>
+                    <div class="line">
+                        <div class="row fields">
+                            <div class="large-6 columns ">
+                                <span class="liner">
+                                <h1 class="num" th:text="${exercise.firstInt}">10</h1>
+                                <h1 class="num" th:text="${exercise.mathAction.action}">+</h1>
+                                <h1 class="num" th:text="${exercise.secondInt}">55</h1>
+                                <h1 class="num">=</h1>
+                                </span>
+                            </div>
+                            <div class="large-2 columns ans" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer == exercise.correctResult}">
+                                <h1 class="num callout success" th:text="${answer.answer}">55</h1>
+                            </div>
+                            <div class="large-2 columns">
+                            </div>
+                            <div class="large-2 columns">
+
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row answerWrap">
+                        <span class="liner2" th:each="answer : ${exercise.userAnswers}" th:if="${answer.answer != exercise.correctResult}">
+                            <h1 class="num2 callout alert" th:text="${answer.answer}" >9</h1>
+                        </span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <!--<input type="submit" class="button  large" value="Save Quiz">-->

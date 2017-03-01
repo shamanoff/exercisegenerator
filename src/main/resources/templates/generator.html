@@ -14,7 +14,7 @@
 <div class="expanded row">
     <div class="top-bar">
 
-        <h3>Mathematix</h3>
+        <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}" />
 
     </div>
 </div>
@@ -24,8 +24,7 @@
         <div class="small-12 large-12  columns box">
             <div class="wrapper">
                 <h3>Quiz Generator</h3>
-                <p>Generate quiz for yours students. Choose exercise conditions. Generate unique ID of every Quiz you
-                    do.</p>
+                <p>Generate Exam for yours students</p>
                 <hr>
                 <form th:action="@{/conditions}" method="post">
                     <div class="row">
@@ -108,7 +107,7 @@
                     </div>
                     <div class="row">
                         <hr>
-                        <input type="submit" class="button  large" value="Generate New Quiz">
+                        <input type="submit" class="button  large" value="Generate New Exam">
                     </div>
                 </form>
             </div>

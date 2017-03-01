@@ -5,7 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
-    <link rel="stylesheet" th:href="@{../app.css}">
+    <link rel="stylesheet" th:href="@{../app.css}"  type="text/css" >
     <!--<link rel="stylesheet" href="../static/app.css">-->
 
 
@@ -14,8 +14,9 @@
 <div class="expanded row header">
     <div class="top-bar" >
 
-            <h3 >Mathematix</h3>
+            <!--<h3 >Mathematix</h3>-->
 
+        <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}" />
     </div>
 </div>
 
@@ -23,23 +24,23 @@
 <div class="row">
     <div class="small-12 large-6  columns box">
         <div class="wrapper">
-            <h3>For Teachers</h3>
-            <p>Generate quiz for yours students. Choose exercise conditions. Generate unique ID of every Quiz you do.</p>
-            <a href="generator.html" class="hollow button">Generate a New Quiz</a>
+            <h3>For Teacher</h3>
+            <p>Generate Exercises for your Students</p>
+            <a href="generator.html" class="hollow button">Generate Exercises</a>
         </div>
     </div>
     <div class="small-12 large-6  columns">
         <div class="wrapper">
             <form th:action="@{/redirect}" method="get">
-                <h3>For Students</h3>
-                <p>Enter the Quiz ID received from the teacher. Do the Quiz and check your answers.</p>
+                <h3>For Learner</h3>
+                <p>Find and Solve your Exercises</p>
                 <div class="row">
 
                     <div class="small-9 columns">
                         <input type="number" id="middle-label" placeholder="Input ID" name="id">
                     </div>
                     <div class="small-3 columns">
-                        <input type="submit" class="button" value="Submit">
+                        <input type="submit" class="button" value="Find Exercises">
                     </div>
 
                 </div>

@@ -14,7 +14,7 @@
 <div class="expanded row">
     <div class="top-bar ">
 
-        <h3>Mathematix</h3>
+        <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}" />
 
     </div>
 </div>
@@ -23,8 +23,8 @@
     <div class="row">
         <div class="small-12 large-12  columns box">
             <div class="wrapper">
-                <h3>Quiz</h3>
-                <p>Solve the Quiz and check the answers. Save exam.</p>
+                <h3>Exam</h3>
+                <p>Solve and Save Exam</p>
                 <hr>
 
                 <div class="area" th:each="exercise : ${add}">
@@ -159,7 +159,7 @@
 
                 <form th:action="@{'/complete/'+${examId}}" method="post">
                 <div class="row">
-                    <input type="submit" class="button  large" value="Save Quiz">
+                    <input type="submit" class="button  large" value="Save Exam">
                 </div>
                 </form>
             </div>
