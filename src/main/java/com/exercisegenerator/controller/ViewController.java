@@ -13,7 +13,7 @@ public class ViewController {
 
 
 
-    @GetMapping({"/"})
+    @GetMapping({"/", "/index"})
     public ModelAndView index(){
 
         ModelAndView mv = new ModelAndView("index");
