@@ -20,13 +20,20 @@ public class ExamController {
 
     @PostMapping(value = "/conditions")
     public ModelAndView getConditions(@ModelAttribute("conditions") ConditionsWrapper conditions) {
-
+        if(conditions.notEmpty(conditions)){
         Long id = examGenerator.createExam(conditions.conditions);
-
         return new ModelAndView("success", Collections.singletonMap("quizId", id));
+        }
+        ModelAndView mv = new ModelAndView("generator");
+        return mv;
     }
+
     @GetMapping(value = "/redirect")
-    public View redirecter (Long id){
+    public View redirecter ( Long id){
+        if(null == id){
+            View view = new RedirectView("/index");
+            return view;
+        }
         View view = new RedirectView("/quiz/"+id);
 
         return view;
