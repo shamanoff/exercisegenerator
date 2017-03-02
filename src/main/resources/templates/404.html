@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+    <link rel="stylesheet" th:href="@{../app.css}">
+    <!--<link rel="stylesheet" href="../static/app.css">-->
+
+
+</head>
+<body>
+<div class="expanded row header">
+    <div class="top-bar" >
+        <a th:href="@{/index}">
+        <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}" /></a>
+
+    </div>
+</div>
+
+<div class="row expanded topline">
+<div class="row">
+    <div class="small-12 large-12  columns">
+        <div class="wrapper">
+            <form>
+                <h3>OOPs! Something goes wrong...</h3>
+                <a class="hollow button centred" th:href="@{'/index/'}">Back to Home</a>
+
+                <div class="row">
+                    <div class="small-9 columns">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/js/foundation.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+</body>
+</html>
