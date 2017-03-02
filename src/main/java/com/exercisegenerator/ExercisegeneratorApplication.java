@@ -8,5 +8,10 @@ public class ExercisegeneratorApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExercisegeneratorApplication.class, args);
+
+        String defaultCharacterEncoding = System.getProperty("file.encoding");
+        System.out.println("defaultCharacterEncoding by property: " + defaultCharacterEncoding);
+
+
 	}
 }

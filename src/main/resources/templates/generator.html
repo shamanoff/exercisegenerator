@@ -15,7 +15,7 @@
     <div class="top-bar">
 
         <a th:href="@{/index}">
-            <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}" /></a>
+            <img class="logo" th:src="@{http://i.imgur.com/5fmPbeo.png}"/></a>
 
     </div>
 </div>
@@ -42,9 +42,11 @@
                         </div>
                         <div class="large-4 columns">
                             <label>Exercise Count
-                                <input type="number" placeholder="how many?" name="conditions[0].exerciseCount" value="0" min="0">
+                                <input type="number" placeholder="how many?" name="conditions[0].exerciseCount"
+                                       value="0" min="0">
                             </label>
-                            <input type="hidden" placeholder="how many?" name="conditions[0].mathCondition" value="ADDITION">
+                            <input type="hidden" placeholder="how many?" name="conditions[0].mathCondition"
+                                   value="ADDITION">
 
                         </div>
                     </div>
@@ -62,9 +64,11 @@
                         </div>
                         <div class="large-4 columns">
                             <label>Exercise Count
-                                <input type="number" placeholder="how many?" name="conditions[1].exerciseCount" value="0" min="0">
+                                <input type="number" placeholder="how many?" name="conditions[1].exerciseCount"
+                                       value="0" min="0">
                             </label>
-                            <input type="hidden" placeholder="how many?" name="conditions[1].mathCondition" value="SUBTRACTION">
+                            <input type="hidden" placeholder="how many?" name="conditions[1].mathCondition"
+                                   value="SUBTRACTION">
                         </div>
                     </div>
                     <div class="row">
@@ -81,34 +85,40 @@
                         </div>
                         <div class="large-4 columns">
                             <label>Exercise Count
-                                <input type="number" placeholder="how many?" name="conditions[2].exerciseCount" value="0" min="0">
+                                <input type="number" placeholder="how many?" name="conditions[2].exerciseCount"
+                                       value="0" min="0">
                             </label>
-                            <input type="hidden" placeholder="how many?" name="conditions[2].mathCondition" value="MULTIPLICATION">
+                            <input type="hidden" placeholder="how many?" name="conditions[2].mathCondition"
+                                   value="MULTIPLICATION">
                         </div>
                     </div>
                     <div class="row">
                         <h4>Division</h4>
                         <div class="large-4 columns">
                             <label>Range from Number(must be > 0)
-                                <input type="number" placeholder="from" name="conditions[3].fromInt" value="0" min="0" id="from">
+                                <input type="number" placeholder="from" name="conditions[3].fromInt" value="0" min="0"
+                                       id="from">
                             </label>
                         </div>
                         <div class="large-4 columns">
                             <label>To Number(must be > 0)
-                                <input type="number" placeholder="to" name="conditions[3].toInt" value="0" min="0" id="to">
+                                <input type="number" placeholder="to" name="conditions[3].toInt" value="0" min="0"
+                                       id="to">
                             </label>
                         </div>
                         <div class="large-4 columns">
                             <label>Exercise Count
-                                <input type="number" placeholder="how many?" name="conditions[3].exerciseCount" value="0" min="0" id="count" >
+                                <input type="number" placeholder="how many?" name="conditions[3].exerciseCount"
+                                       value="0" min="0" id="count">
                             </label>
-                            <input type="hidden" placeholder="how many?" name="conditions[3].mathCondition" value="DIVISION" >
+                            <input type="hidden" placeholder="how many?" name="conditions[3].mathCondition"
+                                   value="DIVISION">
 
                         </div>
                     </div>
                     <div class="row">
                         <hr>
-                        <input type="submit" class="button  large" value="Generate New Exam" >
+                        <input type="submit" class="button  large" value="Generate New Exam">
                     </div>
                 </form>
             </div>
@@ -117,22 +127,28 @@
 </div>
 
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/js/foundation.js"></script>
 <script>
     $(document).foundation();
 
-    $( document ).ready(function() {
-        var a = $("#from").val();
-        var b = $("#to").val();
-        var c = $("#count");
-        if(a&&b == 0){
-            c.addClass("hidden");
-            console.log("hidden");
-        }
-    });
+ /*   $(document).ready(function () {
+        var a;
+        var b;
+        setInterval(function () {
+            a = ObserveInputValue($('#from').val());
+            b = ObserveInputValue($('#to').val());
+            if (a && b == 0) {
+                c.prop("disabled", true);
+
+            }
+        }, 100);
+
+
+
+
+
+    });*/
 
 
 </script>
